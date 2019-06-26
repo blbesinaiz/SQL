@@ -1,0 +1,38 @@
+/* Writing queries for New York Restaurants 
+Table already created for me
+*/
+
+/* View Current Table */
+SELECT * FROM nomnom;
+
+/* View distinct neighborhoods in table */
+SELECT DISTINCT neighborhood FROM nomnom;
+
+SELECT DISTINCT cuisine FROM nomnom;
+
+/* View items in certain category */
+SELECT name FROM nomnom WHERE cuisine = 'Chinese';
+
+/* Return certain parameters */
+SELECT name FROM nomnom WHERE review >= 4;
+
+SELECT name FROM nomnom WHERE cuisine = 'Italian' AND price = '$$$';
+
+SELECT name FROM nomnom WHERE name LIKE '%meatball%';
+
+SELECT name FROM nomnom WHERE neighborhood = 'Midtown' OR neighborhood = 'Downtown' OR neighborhood = 'Chinatown';
+
+SELECT name FROM nomnom WHERE health IS NULL;
+
+SELECT name FROM nomnom ORDER BY review DESC LIMIT 10;
+
+SELECT name, review,
+	CASE
+  	When review > 4.5 THEN 'Extraordinary'
+    When review > 4 THEN 'Excellent'
+    When review > 3 THEN 'Good'
+    When review > 2 THEN 'Fair'
+    Else 'Poor'
+  END AS 'Rating'
+FROM nomnom;
+
