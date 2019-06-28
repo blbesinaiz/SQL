@@ -46,3 +46,10 @@ SELECT email, test FROM users WHERE test = 'bears';
 SELECT email, campaign FROM users WHERE campaign Like 'BBB%';
 SELECT email, campaign, test FROM users WHERE campaign IS NOT NULL AND test IS NOT NULL;
 
+/* Compound Statement */
+SELECT id AS '#', special_instructions AS 'Notes'
+FROM orders
+WHERE special_instructions IS NOT NULL
+AND special_instructions LIKE '%box%'
+ORDER BY special_instructions ASC;
+
